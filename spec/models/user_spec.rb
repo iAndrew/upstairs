@@ -22,7 +22,7 @@ describe User do
   end
   
   it "should respond to password" do
-    User.respond_to(:password).should be_true
+    User.should respond_to(:password)
   end
 
   describe "password validation" do
