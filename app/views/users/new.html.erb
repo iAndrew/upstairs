@@ -1,8 +1,15 @@
 <h1>Sign up</h1>
+<%= @user.authorizations.inspect%>
+<%= @user.authorizations.empty? %>
+<%= @user.password.blank? %>
+<%= @user.authorizations.empty? || !@user.password.blank? %>
 
 <%= simple_form_for @user do |f| %>
+	<%= f.input :nickname %>
   <%= f.input :email, :placeholder => 'user@domain.com' %>
-	<%= f.input :password %>
-	<%= f.input :password_confirmation %>
+	<% if @user.password_required? %>
+		<%= f.input :password %>
+		<%= f.input :password_confirmation %>
+	<% end %>
 	<%= f.button :submit %>
 <% end %>
