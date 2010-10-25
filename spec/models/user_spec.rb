@@ -14,15 +14,9 @@ describe User do
     User.create!(@attr)
   end
   
-  it "should require only nickname to be created" do
-    user_info = {
-      :nickname => "test"
-    }
-    User.create!(user_info)
-  end
-  
-  it "should respond to password" do
-    User.should respond_to(:password)
+  it "should require email" do
+    no_name_user = User.new(@attr.merge(:email => ""))
+    no_name_user.should_not be_valid
   end
 
   describe "password validation" do
