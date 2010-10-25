@@ -1,0 +1,96 @@
+body {
+	background: #f6f6f6 url(../images/paper.png) repeat-x 0 0;
+}
+
+#about {
+	color: #5c5c5c;
+	font: 1em Helvetica, Arial, sans-serif;
+	line-height: 1.4em;
+}
+
+#resume {
+	float: right;
+}
+
+.resume-section {
+	margin-bottom: 20px;
+}
+
+h2 {
+	background: url(../images/title-arrow.png) no-repeat 2% 50%;
+	color: #222222;
+	font: normal 1.25em Helvetica, Arial, sans-serif;
+	margin-bottom: .625em;
+	padding-left: 25px;
+}
+
+.resume-set {
+	background: url(../images/divider-texture.png) no-repeat 0 0;
+	margin-bottom: 10px;
+	padding-top: 20px;
+}
+
+.resume-set h3 {
+	color: #132536;
+	font: italic normal 1.1em Georgia, 'Times New Roman', Times, serif;
+	margin-bottom: .625em;
+}
+
+.resume-set h3 .resume-title-divider {
+	color: #a7a7a7;
+	font-size: .875em;
+	padding: 0 3px;
+}
+
+.resume-set h3 .resume-title-detail {
+	color: #2f5d87;
+	font: bold 0.95em Helvetica, Arial, sans-serif;
+	letter-spacing: -1px;
+}
+
+.resume-set h3 .resume-date {
+	color: #7e7e7e;
+	font: bold .75em/1em Helvetica, Arial, sans-serif;
+	letter-spacing: 0;
+	padding-left: 2px;
+	text-transform: uppercase;
+}
+
+.resume-set p {
+	color: #7e7e7e;
+	font-size: 0.8em;
+	line-height: 1.2em;
+	margin-bottom: .625em;
+	padding: 0 0 0 25px;
+}
+
+.resume-set p em {
+	color: #616161;
+	font-size: 0.9em;
+	font-style: normal;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.resume-set p .resume-skills {
+	color: #9e332e;
+}
+
+.about-list li {
+	font: 0.9em Helvetica, Arial, sans-serif;
+	list-style: square inside;
+	color: #616161;
+	padding: 0 0 3px 6px;
+}
+
+.about-contacts li {
+	font: normal 0.9em Helvetica, Arial, sans-serif;
+	list-style-type:none;
+	color: #9e332e;
+	padding: 0 0 3px 6px;
+}
+
+.about-contacts li em {
+	font: bold 0.9em Helvetica, Arial, sans-serif;
+	color: #616161;
+}
