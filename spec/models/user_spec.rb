@@ -3,7 +3,6 @@ require 'spec_helper'
 describe User do
   before(:each) do
     @attr = {
-      :nickname              => "johnyD",
       :email                 => "john.doe@nobody.com",
       :password              => "foobar",
       :password_confirmation => "foobar"
@@ -133,4 +132,16 @@ describe User do
 
       end
   end
+  
+  describe "userInterest associations" do
+
+      before(:each) do
+        @user = User.create(@attr)
+      end
+
+      it "should have a user_interests attribute" do
+        @user.should respond_to(:user_interests)
+      end
+    end
+  
 end

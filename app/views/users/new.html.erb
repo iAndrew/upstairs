@@ -5,7 +5,6 @@
 <%= @user.authorizations.empty? || !@user.password.blank? %>
 
 <%= simple_form_for @user do |f| %>
-	<%= f.input :nickname %>
   <%= f.input :email, :placeholder => 'user@domain.com' %>
 	<% if @user.password_required? %>
 		<%= f.input :password %>

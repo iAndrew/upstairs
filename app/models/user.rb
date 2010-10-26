@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
   
   has_many :authorizations
   
+  has_many :user_interests
+  
   def has_password?(submitted_password)
     pass == encrypt(submitted_password)
   end
