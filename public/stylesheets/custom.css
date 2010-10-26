@@ -1,3 +1,9 @@
+/* Missed in BluePrint */
+input[type=email] {background-color:#fff;border:1px solid #bbb;}
+input[type=email]:focus {border-color:#666;}
+input[type=password] {margin:0.5em 0;}
+
+/* Custom CSS */
 body {
 	background: #f6f6f6 url(../images/paper.png) repeat-x 0 0;
 }
