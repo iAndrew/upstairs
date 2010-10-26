@@ -13,22 +13,33 @@
   <%= stylesheet_link_tag 'custom', :media => 'screen' %>
 </head>
 <body>
-<% if signed_in? %>
-	<%= link_to "Sign out", signout_path, :method => :delete %>
-<% else %>
-	<%= link_to "Sign in", signin_path %>
-<% end%>
+	<div class="container"> 
+		<div class="span-24 last">
+			<!--header-->
+			<% if signed_in? %>
+				<%= link_to "Sign out", signout_path, :method => :delete %>
+			<% else %>
+				<%= link_to "Sign in", signin_path %>
+			<% end%>
+		</div>
+		
+		<div class="span-4 colborder">
+			left navigation column
+		</div>
 
-<div class="container"> 
-<div class="span-4 colborder">
-  <!-left column->
-</div>
-	<% flash.each do |key, value| %>
-		<%= content_tag(:div, value, :class => "flash #{key}")%>
-	<% end %>
-  <%= yield %>
-</div>
-
-<%= debug(params) if Rails.env.development? %>
+  	<div class="span-19 last">
+			
+			<% flash.each do |key, value| %>
+				<%= content_tag(:div, value, :class => "flash #{key}")%>
+			<% end %>
+			
+			<%= yield %>
+		</div>
+		
+		<div class="span-24 last">
+			<!--footer-->
+			<%= debug(params) if Rails.env.development? %>
+		</div>		
+	</div>
 </body>
 </html>

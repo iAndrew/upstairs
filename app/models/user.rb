@@ -26,11 +26,7 @@ class User < ActiveRecord::Base
   has_many :authorizations
   
   def has_password?(submitted_password)
-    pass = encrypt(submitted_password)
-  end
-  
-  def self.create_from_hash!(hash)
-    create(:nickname => hash['user_info']['nickname'])
+    pass == encrypt(submitted_password)
   end
   
   def self.authenticate(email, submitted_password)
