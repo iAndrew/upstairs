@@ -111,6 +111,7 @@ h2 {
 
 .simple_form div.input {
 	margin-bottom: 10px;
+	size: 300px;
 }
 
 .simple_form div.boolean, .simple_form input[type='submit'] {

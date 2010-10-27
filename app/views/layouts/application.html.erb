@@ -13,8 +13,8 @@
   <%= stylesheet_link_tag 'custom', :media => 'screen' %>
 </head>
 <body>
-	<div class="container"> 
-		<div class="span-24 last">
+	<div class  = "container"> 
+		<div class = "span-24 last">
 			<!--header-->
 			<% if signed_in? %>
 				<%= link_to "Sign out", signout_path, :method => :delete %>
@@ -22,24 +22,23 @@
 				<%= link_to "Sign in", signin_path %>
 			<% end%>
 		</div>
-		
-		<div class="span-4 colborder">
+				
+		<div class = "span-4 colborder">
 			left navigation column
 		</div>
 
-  	<div class="span-19 last">
-			
+  	<div class="span-19 last">	
 			<% flash.each do |key, value| %>
 				<%= content_tag(:div, value, :class => "flash #{key}")%>
 			<% end %>
 			
 			<%= yield %>
-		</div>
+		</div>		
 		
 		<div class="span-24 last">
 			<!--footer-->
 			<%= debug(params) if Rails.env.development? %>
-		</div>		
+		</div>
 	</div>
 </body>
 </html>
