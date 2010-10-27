@@ -1,4 +1,8 @@
 Upstairs::Application.routes.draw do
+  
+  resources :roles
+  resources :groups
+
   resources :users
   
   match '/signup',  :to => 'users#new'

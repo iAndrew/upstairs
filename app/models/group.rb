@@ -1,13 +1,13 @@
 class Group < ActiveRecord::Base
 
-  attr_accessible :name, :type, :citation, :citation_author, 
+  attr_accessible :name, :group_type, :citation, :citation_author, 
                   :aim_of_project, :client, :web_page   
   
   url_regexp = /((http|https):\/\/\w+.\w+)|^$/i  #the most simple url validator
   
   validates :name, :presence => true, :uniqueness => true,
             :length => { :minimum => 8, :maximum => 50 }
-  validates :type, :presence => true, :inclusion => ["PROJECT", "GROUP"]
+  validates :group_type, :presence => true, :inclusion => ["PROJECT", "GROUP"]
   validates :citation, :presence => true, :unless => :citation_author_empty? 
   validates :web_page, :length => { :maximum => 50 }, :format => { :with => url_regexp }
   validates :client, :presence => true, :length => { :minimum => 4, :maximum => 50 }

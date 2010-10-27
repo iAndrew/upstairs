@@ -4,7 +4,7 @@ describe Group do
 
   before(:each) do
     @attr  = {:name => "Sample Project",
-              :type => "PROJECT",
+              :group_type => "PROJECT",
               :citation => "Imagination is more important than knowledge.",
               :citation_author => "Albert Einstein",
               :aim_of_project => "Some simple aim.",  
@@ -35,24 +35,24 @@ describe Group do
     end
   end
   
-  describe "type" do
+  describe "group_type" do
     it "should be mandatory" do
-      @attr[:type] = ""
+      @attr[:group_type] = ""
       Group.new(@attr).should_not be_valid
     end  
     
      it "can be GROUP" do
-      @attr[:type] = "GROUP"
+      @attr[:group_type] = "GROUP"
       Group.new(@attr).should be_valid
     end   
     
     it "can be PROJECT" do
-      @attr[:type] = "PROJECT"
+      @attr[:group_type] = "PROJECT"
       Group.new(@attr).should be_valid
     end           
     
     it "must be either PROJECT or GROUP" do
-      @attr[:type] = "DIVISION"
+      @attr[:group_type] = "DIVISION"
       Group.new(@attr).should_not be_valid
     end     
   end
