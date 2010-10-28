@@ -32,6 +32,21 @@ class GroupsController < ApplicationController
     redirect_to groups_path
   end
   
-  def 
+  def edit
+    
+    @group = Group.find(params[:id])
+    @title = "Edit #{@group.group_type.capitalize} #{@group.name}"
+  end 
+  
+  def update
+    @group = Group.find(params[:id])
+    if @group.update_attributes(params[:group])
+      flash[:success] = "Profile updated."
+      redirect_to group_path(@group)
+    else
+      @title = "Edit user"
+      render 'edit'
+    end
+  end
 
 end

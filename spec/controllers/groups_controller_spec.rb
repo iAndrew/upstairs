@@ -4,9 +4,24 @@ describe GroupsController do
   render_views 
   
   describe "GET 'new'" do
-    it "should be successful" do
-      get :new
-      response.should be_success
+    
+    describe "for non signed in user" do
+      it "should redirect to sign in" do
+        get :new
+        responce.should redirect_to(signin_path)
+      end
+    end
+    
+    describe "for non signed in user" do
+      before(:each) do
+
+        
+      end
+
+      it "should be successful" do
+        get :new
+        response.should be_success
+      end
     end
   end
 

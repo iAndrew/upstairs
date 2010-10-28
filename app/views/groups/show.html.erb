@@ -8,4 +8,5 @@
 <% unless @group.web_page.empty? %>
   <p><strong>Web Page:</strong><%= @group.web_page %></p>
 <% end %>
-<%= link_to "edit", @group, :method => :edit %>
+<%= link_to "edit", edit_group_path(@group)%>
+
