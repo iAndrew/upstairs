@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
   
+  #before_filter :authenticate, :except => [:show]
+  
   def new
     @group = Group.new
     @title = "Create a new group"

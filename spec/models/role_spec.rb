@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe Role do
   before (:each) do
-    @attr = { :name => "C++ Developer",
-              :tech => "C++",                 # both may be replaced with Name
-              :type => "Developer",           # both may be replaced with Name
-              :area => "Technical" }
+    @attr = { :name       => "C++ Developer",
+              :tech       => "C++",                 # both may be replaced with Name
+              :role_type  => "Developer",      # both may be replaced with Name
+              :area       => "Technical" }
   end
   
   it "should be created a valid attributes given" do

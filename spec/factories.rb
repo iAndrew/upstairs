@@ -7,7 +7,7 @@ Factory.define :user do |user|
 end
 
 Factory.define :group do |group|
-  group.name            { Faker::Company.name }
+  group.name            { Faker::Company.name+" Project" }
   group.group_type      "PROJECT"
   group.citation        { Faker::Company.catch_phrase }
   group.citation_author { Faker::Name.name }

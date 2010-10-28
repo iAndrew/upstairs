@@ -1,2 +1,10 @@
-<h1>Roles#new</h1>
-<p>Find me in app/views/roles/new.html.erb</p>
+<h1>Create new role</h1>
+
+<%= simple_form_for @role do |f| %>
+  <%= f.input :name %>
+  <%= f.input :tech %>
+  <%= f.input :role_type %>
+  <%= f.input :area %>
+  <%= f.button :submit %>
+<% end %>  
+

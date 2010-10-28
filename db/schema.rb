@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20101020033912) do
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.string   "tech"
-    t.string   "type"
+    t.string   "role_type"
     t.string   "area"
     t.datetime "created_at"
     t.datetime "updated_at"

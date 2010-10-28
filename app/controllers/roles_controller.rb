@@ -14,7 +14,7 @@ class RolesController < ApplicationController
     @role = Role.new(params[:role])
     if @role.save
        flash[:success] = "New role '#{@role.name}' was created."
-       redirect_to role_path
+       redirect_to roles_path
     else
        @title = "Create a new role"
        render 'new'
@@ -22,8 +22,8 @@ class RolesController < ApplicationController
   end
   
   def destroy
-    @role = Role.find_by_id(params[:id])
-    @role.dele
+    Role.find_by_id(params[:id]).destroy
+    render 'index'
   end
 
 end
