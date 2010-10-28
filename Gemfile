@@ -27,4 +27,5 @@ group :development, :test do
 	gem 'annotate-models'
 	gem 'factory_girl_rails', '1.0'
 	gem 'faker'
+	gem 'syntax'
 end

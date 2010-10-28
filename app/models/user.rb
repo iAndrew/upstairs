@@ -18,19 +18,35 @@ class User < ActiveRecord::Base
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
-  #validates :email, :format => { :with => email_regex }, :uniqueness => { :case_sensetive => false }
-  validates :password, :confirmation => true#, :length => { :within => 6..40 }
+  validates :email, :format => { :with => email_regex }, :uniqueness => { :case_sensetive => false }
+  validates :password, :confirmation => true, :length => { :within => 6..40 }, :if => :password_required?
   
   before_save :encrypt_password
   
   has_many :authorizations
   
   def has_password?(submitted_password)
-    pass = encrypt(submitted_password)
+    pass == encrypt(submitted_password)
   end
   
-  def self.create_from_hash!(hash)
-    create(:nickname => hash['user_info']['nickname'])
+  def self.authenticate(email, submitted_password)
+    user = find_by_email(email)
+    return nil if user.nil?
+    return user if user.has_password?(submitted_password)
+  end
+  
+  def self.authenticate_with_salt(id, cookie_salt)
+    user = find_by_id(id)
+    (user && user.salt == cookie_salt) ? user : nil
+  end
+  
+  def password_required?
+    authorizations.empty? || !password.blank?
+  end
+  
+  def apply_omniauth(hash)
+    self.nickname = hash['user_info']['nickname']
+    authorizations.build(:provider => hash['provider'], :uid => hash['uid'])
   end
   
   private  
