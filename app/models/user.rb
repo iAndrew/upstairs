@@ -1,15 +1,18 @@
 # == Schema Information
-# Schema version: 20101019183408
+# Schema version: 20101026154531
 #
 # Table name: users
 #
-#  id         :integer         not null, primary key
-#  email      :string(255)
-#  pass       :string(255)
-#  salt       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#  nickname   :string(255)
+#  id          :integer         not null, primary key
+#  email       :string(255)
+#  pass        :string(255)
+#  salt        :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#  first_name  :string(255)
+#  second_name :string(255)
+#  birth_date  :date
+#  about_me    :text
 #
 
 class User < ActiveRecord::Base
@@ -26,6 +29,8 @@ class User < ActiveRecord::Base
   has_many :authorizations
   
   has_many :user_interests
+  
+  has_one :user_contact
   
   def has_password?(submitted_password)
     pass == encrypt(submitted_password)
