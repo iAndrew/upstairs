@@ -1,0 +1,20 @@
+<h1>All groups</h1>
+<ul class="groups">
+<% @groups.each do |f| %>
+  <li> 
+    <h2><%= "#{f.group_type.capitalize}:#{f.name}" %></h2>
+    <% unless f.citation.empty? %>
+      <p class="citation"><%= f.citation %></p>
+      <p class="citation_author"><%= f.citation_author %></p>
+    <% end %>
+    <p><strong>Aim:</strong><%= f.aim_of_project %></p>
+    <p><strong>Client:</strong><%= f.client %></p>
+    <% unless f.web_page.empty? %>
+      <p><strong>Web Page:</strong><%= f.web_page %></p>
+    <% end %>
+  </li>
+<% end %>
+</ul>
+
+
+

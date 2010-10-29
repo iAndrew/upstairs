@@ -1,0 +1,16 @@
+<h1>Create new group</h1>
+
+<%= simple_form_for @group do |f| %>
+  <%= f.input :name %>
+  <%= f.input :group_type %>
+  <%= f.input :citation %>
+  <%= f.input :citation_author %>
+  <%= f.input :aim_of_project %>
+  <%= f.input :client %>
+  <%= f.input :web_page %>
+  <%= f.button :submit %>
+<% end %>
+
+
+
+
