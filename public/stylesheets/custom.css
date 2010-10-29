@@ -8,6 +8,10 @@ body {
 	background: #f6f6f6 url(../images/paper.png) repeat-x 0 0;
 }
 
+div.containe {
+	background: white;
+}
+
 #about {
 	color: #5c5c5c;
 	font: 1em Helvetica, Arial, sans-serif;
@@ -99,6 +103,56 @@ h2 {
 .about-contacts li em {
 	font: bold 0.9em Helvetica, Arial, sans-serif;
 	color: #616161;
+}
+
+/* Top Navigation */
+header {
+	display: block;
+	height: 30px;
+	position: relative;
+	text-align: center;
+	width: 100%;
+	background: #999; /* for non-css3 browsers */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#B9E58B', endColorstr='#65BB12'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#B9E58B), to(#65BB12)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #B9E58B,  #65BB12); /* for firefox 3.6+ */
+	-moz-box-shadow: 0px 3px 5px #ccc;
+  -webkit-box-shadow: 0px 3px 5px #ccc;
+  box-shadow: 0px 3px 5px #ccc;
+	-moz-border-radius: 0px 0px 3px 3px;
+	border-radius: 0px 0px 3px 3px;
+}
+nav#top-nav {
+	margin: 0px auto;
+}
+
+nav#top-nav logo {
+	float: left;
+	margin-top: -5px;
+	margin-left: 20px;
+}
+
+nav#top-nav logo a {
+	font-size: 25px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+}
+
+nav#top-nav ul {
+	float: right;
+	list-style-type: none;
+}
+
+nav#top-nav ul li {
+	margin-top: 0.5em;
+	display: inline-block;
+}
+
+nav#top-nav ul li a {
+	outline: none;
+	font-size: 13px;
+	margin-left: 10px;
 }
 
 /* Simple form style */
