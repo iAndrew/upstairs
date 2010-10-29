@@ -1,15 +1,18 @@
 /* Missed in BluePrint */
 input[type=email] {background-color:#fff;border:1px solid #bbb;}
 input[type=email]:focus {border-color:#666;}
-input[type=password] {margin:0.5em 0;}
+input[type=email] {margin:0.5em 0;}
 
 /* Custom CSS */
 body {
 	background: #f6f6f6 url(../images/paper.png) repeat-x 0 0;
 }
 
-div.containe {
-	background: white;
+div.main-content {
+	background-color: white;
+	margin: 10px 0px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
 }
 
 #about {
@@ -26,7 +29,7 @@ div.containe {
 	margin-bottom: 20px;
 }
 
-h2 {
+#about h2 {
 	background: url(../images/title-arrow.png) no-repeat 2% 50%;
 	color: #222222;
 	font: normal 1.25em Helvetica, Arial, sans-serif;
@@ -197,4 +200,83 @@ nav#top-nav ul li a {
   color: #555;
   display: block;
   font-style: italic;
+}
+
+/* Login form */
+.login {
+	margin-top: 20px;
+}
+.login-left-side {
+	float: left;
+	width: 450px;
+}
+.login-right-side {
+	float: right;
+	width: 500px;
+}
+.login form {
+		padding-bottom: 20px;
+}
+.login-right-side h2 {
+	margin-bottom: 0.1em;
+}
+.login-right-side label {
+	margin-top: 12px;
+	font-size: 14px;
+}
+.login-right-side input {
+	font-size: 16px;
+	width: 300px;
+	padding: 6px;
+}
+
+.login-right-side input#session_submit {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#B9E58B', endColorstr='#65BB12'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#B9E58B), to(#65BB12)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #B9E58B,  #65BB12); /* for firefox 3.6+ */
+	display: inline-block;
+	padding: 5px 10px 6px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	text-shadow: 0 -1px 1px #222;
+	border-bottom: 1px solid #222;
+	position: relative;
+	cursor: pointer;
+	background-color: #B9E58B;
+	width: 100px;
+}
+
+.login div.services {
+	padding: 20px 0 20px 0;
+	border-top: dotted 1px;
+	border-bottom: dotted 1px;
+	margin-bottom: 20px;
+}
+
+.login div.services ul {
+	list-style-type: none;
+	margin: 0px;
+}
+
+.login div.services ul li{
+	display: inline-block;
+}
+
+.login div.services ul li a {
+	padding-left: 20px;
+	margin-left: 10px;
+	border: none;
+	font-size: 16px;
+}
+.login div.services ul li a#twitter {
+	background: url(../images/twitter.png) no-repeat left center;
+}
+.login div.services ul li a#facebook {
+	background: url(../images/facebook.png) no-repeat left center;
+}
+
 }

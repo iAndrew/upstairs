@@ -1,16 +1,25 @@
-<h1>Sign in</h1>
+<div class="login">
+<div class="login-left-side">
+	Picture will be there
+</div>
+<div class="login-right-side">
+	<h1>Sign in</h1>
+	<h3>Please sign in using email\password or services below:</h3>
 
-<%= simple_form_for(:session, :url => sessions_path) do |f| %>
-  <%= f.input :email %>
-	<%= f.input :password %>
-	<%= f.submit "Sign in" %>
-<% end %>
+	<%= simple_form_for(:session, :url => sessions_path) do |f| %>
+  	<%= f.input :email, :placeholder => 'user@domain.org', :label => 'Your Email:' %>
+		<%= f.input :password, :label => 'Password:' %>
+		<%= f.submit "Sign in" %>
+	<% end %>
+	
+	<div class="services">
+		<h3>Authorize using:</h3>
+		<ul>
+			<li><a href="/auth/twitter" class="auth_provider" id="twitter">Twitter</a></li>
+			<li><a href="/auth/facebook" class="auth_provider" id="facebook">facebook</a></li>
+		</ul>
+	</div>
 
-<p>You can authorize using:</p>
-<a href="/auth/twitter" class="auth_provider">
-  Twitter
-</a>
-
-<p>Or you can create new user</p>
-<%= link_to "Create", signup_path %>
-
+	<h3>Please <%= link_to "create", signup_path %> a new user, if you don't have one.</h3>
+</div>
+</div>

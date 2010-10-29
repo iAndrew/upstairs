@@ -18,18 +18,22 @@
 			<%= render 'layouts/header' %>
 		</div>
 		
-		<div class="main-content">
-			<div class = "span-4 colborder">
-				left navigation column
-			</div>
+		<div class="span-24 last main-content">
+			<% if signed_in? %>
+				<div class = "span-4 colborder">
+					left navigation column
+				</div>
 
-  		<div class="span-19 last">	
-				<% flash.each do |key, value| %>
-					<%= content_tag(:div, value, :class => "flash #{key}")%>
-					<% end %>
+  			<div class="span-19 last">	
+					<% flash.each do |key, value| %>
+						<%= content_tag(:div, value, :class => "flash #{key}")%>
+						<% end %>
 			
+						<%= yield %>
+				</div>
+			<% else %>
 				<%= yield %>
-			</div>		
+			<% end %>		
 		</div>		
 		
 		<div class="span-24 last">
