@@ -1,0 +1,10 @@
+<h1>Create new role</h1>
+
+<%= simple_form_for @role do |f| %>
+  <%= f.input :name %>
+  <%= f.input :tech %>
+  <%= f.input :role_type %>
+  <%= f.input :area %>
+  <%= f.button :submit %>
+<% end %>  
+

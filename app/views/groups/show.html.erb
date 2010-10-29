@@ -1,0 +1,12 @@
+<h1><%= "#{@group.group_type.capitalize} #{@group.name}."%></h1>
+<% unless @group.citation.empty? %>
+  <p class="citation"><%= @group.citation %></p>
+  <p class="citation_author"><%= @group.citation_author %></p>
+<% end %>
+<p><strong>Aim:</strong><%= @group.aim_of_project %></p>
+<p><strong>Client:</strong><%= @group.client %></p>
+<% unless @group.web_page.empty? %>
+  <p><strong>Web Page:</strong><%= @group.web_page %></p>
+<% end %>
+<%= link_to "edit", edit_group_path(@group)%>
+

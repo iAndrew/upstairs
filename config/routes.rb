@@ -1,4 +1,8 @@
 Upstairs::Application.routes.draw do
+  
+  resources :roles, :only => [:index, :new, :create, :destroy]
+  resources :groups
+
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   
