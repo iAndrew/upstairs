@@ -14,6 +14,9 @@ body {
 	background: -moz-linear-gradient(top,  #B9E58B,  #65BB12); /* for firefox 3.6+ */
 }
 
+div.main-content {
+	padding-top: 20px;
+}
 div.flash {
 	margin: 1em 50px 0 50px;
 	margin-bottom: 1em;
