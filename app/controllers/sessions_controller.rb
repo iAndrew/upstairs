@@ -24,7 +24,6 @@ class SessionsController < ApplicationController
     omniauth = request.env['omniauth.auth']
     auth = Authorization.find_from_hash(omniauth)
     if (auth)
-      flash[:notice] = "Signed in successfully."
       sign_in(auth.user) 
       redirect_to user_path(current_user)
     elsif current_user

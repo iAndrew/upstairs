@@ -1,15 +1,15 @@
+<div class="sign-up-left">
+	Picture will be here
+</div>
+<div class="sign-up-right">
 <h1>Sign up</h1>
-<%= @user.authorizations.inspect%>
-<%= @user.authorizations.empty? %>
-<%= @user.password.blank? %>
-<%= @user.authorizations.empty? || !@user.password.blank? %>
 
 <%= simple_form_for @user do |f| %>
-	<%= f.input :nickname %>
-  <%= f.input :email, :placeholder => 'user@domain.com' %>
+  <%= f.input :email, :placeholder => 'user@domain.com', :input_html => {:class => 'huge wide'},:label_html => {:class => "huge-label"}, :label => "Email:" %>
 	<% if @user.password_required? %>
-		<%= f.input :password %>
-		<%= f.input :password_confirmation %>
+		<%= f.input :password, :input_html => {:class => 'huge wide'}, :label_html => {:class => "huge-label"}, :label => "Password:" %>
+		<%= f.input :password_confirmation, :input_html => {:class => 'huge wide'}, :label_html => {:class => "huge-label"}, :label => "Confirmation:" %>
 	<% end %>
-	<%= f.button :submit %>
+	<%= f.button :submit, :class => 'gradient-bg huge' %>
 <% end %>
+</div>
