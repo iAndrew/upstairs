@@ -69,8 +69,8 @@ header {
 	position: relative;
 	text-align: center;
 	width: 100%;
-	border-left: 1px solid #999;
-	border-right: 1px solid #999;
+	border-left: 1px solid #BBB;
+	border-right: 1px solid #BBB;
 }
 nav#top-nav {
 	margin: 0px auto;
