@@ -7,9 +7,9 @@
 	<h3>Please sign in using email\password or services below:</h3>
 
 	<%= simple_form_for(:session, :url => sessions_path) do |f| %>
-  	<%= f.input :email, :placeholder => 'user@domain.org', :label => 'Your Email:' %>
-		<%= f.input :password, :label => 'Password:' %>
-		<%= f.submit "Sign in" %>
+  	<%= f.input :email, :placeholder => 'user@domain.com', :label => 'Your Email:', :input_html => {:class => 'huge wide'}, :label_html => {:class => "huge-label"} %>
+		<%= f.input :password, :label => 'Password:', :input_html => {:class => 'huge wide'}, :label_html => {:class => "huge-label"} %>
+		<%= f.submit "Sign in", :class => 'gradient-bg huge' %>
 	<% end %>
 	
 	<div class="services">

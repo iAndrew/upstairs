@@ -3,21 +3,158 @@ input[type=email] {background-color:#fff;border:1px solid #bbb;}
 input[type=email]:focus {border-color:#666;}
 input[type=email] {margin:0.5em 0;}
 
-/* Custom CSS */
+/* Default styles CSS */
 body {
-	background: #f6f6f6 url(../images/paper.png) repeat-x 0 0;
+/*	background: #f6f6f6 url(../images/paper.png) repeat-x 0 0;*/
 }
+.gradient-bg {
+	background-color: #B9E58B;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#B9E58B', endColorstr='#65BB12'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#B9E58B), to(#65BB12)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #B9E58B,  #65BB12); /* for firefox 3.6+ */
+}
+
+div.flash {
+	margin: 1em 50px 0 50px;
+	margin-bottom: 1em;
+}
+#top-bar {
+	height: 40px;
+	left: 0px;
+	position: absolute;
+	width: 100%;
+	z-index: -1;
+}
+
+.huge-label {
+	margin-top: 12px;
+	font-size: 14px;
+}
+
+input.huge {
+	padding: 6px;
+	font-size: 16px;
+}
+
+input.wide {
+	width: 300px;
+}
+
+input[type=submit] {
+	width: auto;
+}
+
+input[type=submit] {
+	display: inline-block;
+	padding: 5px 10px 6px;
+	color: #333;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-bottom: 1px solid #222;
+	position: relative;
+	cursor: pointer;	
+	width: auto;
+}
+
+/* Top Navigation */
+header {
+	display: block;
+	height: 40px;
+	position: relative;
+	text-align: center;
+	width: 100%;
+	border-left: 1px solid #999;
+	border-right: 1px solid #999;
+}
+nav#top-nav {
+	margin: 0px auto;
+}
+
+nav#top-nav logo {
+	float: left;
+	margin-top: -5px;
+	margin-left: 20px;
+}
+
+nav#top-nav logo a {
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+}
+
+nav#top-nav ul {
+	float: right;
+	list-style-type: none;
+	margin-bottom: 0;
+}
+
+nav#top-nav ul li {
+	margin-top: 10px;
+	display: inline-block;
+}
+
+nav#top-nav ul li a {
+	outline: none;
+	font-size: 14px;
+	margin-left: 5px;
+}
+
+/* Simple form style */
+.simple_form label {
+	float: left;
+	width: 100px;
+	text-align: right;
+	margin-right: 10px;
+}
+
+.simple_form div.input {
+	margin-bottom: 10px;
+}
+
+.simple_form div.boolean, .simple_form input[type='submit'] {
+  margin-left: 110px;
+}
+
+.simple_form div.boolean label, .simple_form label.collection_radio {
+  float: none;
+  margin: 0;
+}
+
+.simple_form label.collection_radio {
+  margin-right: 10px;
+  margin-left: 2px;
+}
+
+.simple_form .error {
+  clear: left;
+  margin-left: 120px;
+  font-size: 12px;
+  color: #D00;
+  display: block;
+}
+
+.simple_form .hint {
+  clear: left;
+  margin-left: 120px;
+  font-size: 12px;
+  color: #555;
+  display: block;
+  font-style: italic;
+}
+
+/* Specific CSS */
 
 div.main-content {
 	background-color: white;
-	margin: 10px 0px;
-	-moz-border-radius: 5px 5px 5px 5px;
-	border-radius: 5px 5px 5px 5px;
 }
 
 #about {
 	color: #5c5c5c;
-	font: 1em Helvetica, Arial, sans-serif;
+	font-size: 1em;
 	line-height: 1.4em;
 }
 
@@ -108,104 +245,7 @@ div.main-content {
 	color: #616161;
 }
 
-/* Top Navigation */
-header {
-	display: block;
-	height: 30px;
-	position: relative;
-	text-align: center;
-	width: 100%;
-	background: #999; /* for non-css3 browsers */
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#B9E58B', endColorstr='#65BB12'); /* for IE */
-	background: -webkit-gradient(linear, left top, left bottom, from(#B9E58B), to(#65BB12)); /* for webkit browsers */
-	background: -moz-linear-gradient(top,  #B9E58B,  #65BB12); /* for firefox 3.6+ */
-	-moz-box-shadow: 0px 3px 5px #ccc;
-  -webkit-box-shadow: 0px 3px 5px #ccc;
-  box-shadow: 0px 3px 5px #ccc;
-	-moz-border-radius: 0px 0px 3px 3px;
-	border-radius: 0px 0px 3px 3px;
-}
-nav#top-nav {
-	margin: 0px auto;
-}
-
-nav#top-nav logo {
-	float: left;
-	margin-top: -5px;
-	margin-left: 20px;
-}
-
-nav#top-nav logo a {
-	font-size: 25px;
-	font-weight: bold;
-	text-decoration: none;
-	color: #333;
-}
-
-nav#top-nav ul {
-	float: right;
-	list-style-type: none;
-}
-
-nav#top-nav ul li {
-	margin-top: 0.5em;
-	display: inline-block;
-}
-
-nav#top-nav ul li a {
-	outline: none;
-	font-size: 13px;
-	margin-left: 10px;
-}
-
-/* Simple form style */
-.simple_form label {
-	float: left;
-	width: 100px;
-	text-align: right;
-	margin: 2px 10px;
-}
-
-.simple_form div.input {
-	margin-bottom: 10px;
-	size: 300px;
-}
-
-.simple_form div.boolean, .simple_form input[type='submit'] {
-  margin-left: 120px;
-}
-
-.simple_form div.boolean label, .simple_form label.collection_radio {
-  float: none;
-  margin: 0;
-}
-
-.simple_form label.collection_radio {
-  margin-right: 10px;
-  margin-left: 2px;
-}
-
-.simple_form .error {
-  clear: left;
-  margin-left: 120px;
-  font-size: 12px;
-  color: #D00;
-  display: block;
-}
-
-.simple_form .hint {
-  clear: left;
-  margin-left: 120px;
-  font-size: 12px;
-  color: #555;
-  display: block;
-  font-style: italic;
-}
-
 /* Login form */
-.login {
-	margin-top: 20px;
-}
 .login-left-side {
 	float: left;
 	width: 450px;
@@ -215,39 +255,10 @@ nav#top-nav ul li a {
 	width: 500px;
 }
 .login form {
-		padding-bottom: 20px;
+	padding-bottom: 20px;
 }
 .login-right-side h2 {
 	margin-bottom: 0.1em;
-}
-.login-right-side label {
-	margin-top: 12px;
-	font-size: 14px;
-}
-.login-right-side input {
-	font-size: 16px;
-	width: 300px;
-	padding: 6px;
-}
-
-.login-right-side input#session_submit {
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#B9E58B', endColorstr='#65BB12'); /* for IE */
-	background: -webkit-gradient(linear, left top, left bottom, from(#B9E58B), to(#65BB12)); /* for webkit browsers */
-	background: -moz-linear-gradient(top,  #B9E58B,  #65BB12); /* for firefox 3.6+ */
-	display: inline-block;
-	padding: 5px 10px 6px;
-	color: #fff;
-	text-decoration: none;
-	font-weight: bold;
-	line-height: 1;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	text-shadow: 0 -1px 1px #222;
-	border-bottom: 1px solid #222;
-	position: relative;
-	cursor: pointer;
-	background-color: #B9E58B;
-	width: 100px;
 }
 
 .login div.services {
@@ -279,4 +290,12 @@ nav#top-nav ul li a {
 	background: url(../images/facebook.png) no-repeat left center;
 }
 
+/*sign up form */
+.sign-up-left {
+	float: left;
+	width: 450px;
+}
+.sign-up-right {
+	float: right;
+	width: 500px;
 }

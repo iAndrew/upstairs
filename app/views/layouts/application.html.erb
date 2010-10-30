@@ -4,35 +4,29 @@
   <title>Upstairs | <%= @title %></title>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->    
-  <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
-  <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
-  <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
-  <%= stylesheet_link_tag 'custom', :media => 'screen' %>
+  <%= render :partial => 'layouts/stylesheets' %>
 </head>
 <body>
+	<div id="top-bar" class="gradient-bg"></div>	
 	<div class = "container"> 
 		<div class = "span-24 last">
 			<%= render 'layouts/header' %>
 		</div>
-		
+
 		<div class="span-24 last main-content">
 			<% if signed_in? %>
-				<div class = "span-4 colborder">
-					left navigation column
-				</div>
-
-  			<div class="span-19 last">	
-					<% flash.each do |key, value| %>
-						<%= content_tag(:div, value, :class => "flash #{key}")%>
-						<% end %>
-			
-						<%= yield %>
-				</div>
-			<% else %>
+			<div class = "span-4 colborder">
+				left navigation column
+			</div>
+			<div class="span-19 last">
+				<%= render :partial => 'layouts/notification' %>	
 				<%= yield %>
+			</div>
+			<% else %>
+			<div class="span-24 last">
+				<%= render :partial => 'layouts/notification' %>
+				<%= yield %>
+			</div>
 			<% end %>		
 		</div>		
 		
