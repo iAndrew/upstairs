@@ -292,6 +292,9 @@ div.main-content {
 .login div.services ul li a#facebook {
 	background: url(../images/facebook.png) no-repeat left center;
 }
+.login div.services ul li a#ldap {
+	background: url(../images/ldap.png) no-repeat left center;
+}
 
 /*sign up form */
 .sign-up-left {
