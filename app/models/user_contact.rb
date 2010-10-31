@@ -12,7 +12,7 @@
 #
 
 class UserContact < ActiveRecord::Base
-  attr_accessible :contact_type, :contact_value
+  attr_accessible :category, :value
   
   belongs_to :user
   

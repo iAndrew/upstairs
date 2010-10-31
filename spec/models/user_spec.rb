@@ -140,7 +140,7 @@ describe User do
     end
 
     it "should have a user_interests attribute" do
-      @user.should respond_to(:user_interests)
+      @user.should respond_to(:interests)
     end
   end
   
@@ -151,7 +151,7 @@ describe User do
     end
 
     it "should have a user_contact attribute" do
-      @user.should respond_to(:user_contact)
+      @user.should respond_to(:contact)
     end
   end
   

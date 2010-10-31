@@ -3,17 +3,17 @@ require 'spec_helper'
 describe UserInterest do
   before(:each) do
     @user = Factory(:user)
-    @attr = { :content => "value for interest" }
+    @attr = { :interest => "value for interest" }
   end
 
   it "should create a new instance given valid attributes" do
-    @user.user_interests.create!(@attr)
+    @user.interests.create!(@attr)
   end
 
   describe "user associations" do
 
     before(:each) do
-      @user_interests = @user.user_interests.create(@attr)
+      @user_interests = @user.interests.create(@attr)
     end
 
     it "should have a user attribute" do
