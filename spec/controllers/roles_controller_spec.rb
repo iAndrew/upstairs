@@ -45,7 +45,6 @@ describe RolesController do
                :role_type => "Role", 
                :area => "Management"}
       @role = Role.create!(@attr)
-      puts Role.count
     end
     
     it "should be successful" do

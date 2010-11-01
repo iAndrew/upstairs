@@ -2,8 +2,8 @@
 
 <%= simple_form_for @group do |f| %>
   <%= f.input :name %>
-  <%= f.input :group_type %>
-  <%= f.input :citation %>
+  <%= f.input :group_type, :collection => ["PROJECT", "GROUP"] %>
+  <%= f.input :citation, :as => :text %>
   <%= f.input :citation_author %>
   <%= f.input :aim_of_project %>
   <%= f.input :client %>

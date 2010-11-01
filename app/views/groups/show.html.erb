@@ -8,5 +8,6 @@
 <% unless @group.web_page.empty? %>
   <p><strong>Web Page:</strong><%= @group.web_page %></p>
 <% end %>
-<%= link_to "edit", edit_group_path(@group)%>
+<%= link_to "Edit", edit_group_path(@group)%>
+<%= link_to "Delete", @group, :method => :delete %>
 
