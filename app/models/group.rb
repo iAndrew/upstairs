@@ -16,4 +16,9 @@ class Group < ActiveRecord::Base
     citation_author.empty?
   end
   
+  has_many :involvements, :dependent => :destroy
+  has_many :current_involvements, :class_name => "Involvement", :conditions => ['end_date is null']
+  
+  has_many :users, :through => :involvements, :source => :user
+  
 end

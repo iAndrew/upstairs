@@ -179,7 +179,8 @@ describe GroupsController do
         end
 
         it "should redirect to index" do
-            response.should redirect_to(groups_path)
+          delete :destroy, :id => @group
+          response.should redirect_to(groups_path)
         end        
       end
         

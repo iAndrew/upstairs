@@ -29,12 +29,11 @@ class GroupsController < ApplicationController
   
   def destroy
     Group.find(params[:id]).destroy
-    flash[:success] = "Group removed"
+    flash[:success] = "Group was removed"
     redirect_to groups_path
   end
   
   def edit
-    
     @group = Group.find(params[:id])
     @title = "Edit #{@group.group_type.capitalize} #{@group.name}"
   end 
@@ -42,7 +41,7 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
     if @group.update_attributes(params[:group])
-      flash[:success] = "Profile updated."
+      flash[:success] = "Profile was updated."
       redirect_to group_path(@group)
     else
       @title = "Edit user"

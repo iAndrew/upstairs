@@ -2,56 +2,54 @@ require 'spec_helper'
 
 describe Involvement do
 
-  # it "can be created from User using get_involved" do
-  #   User.should respond_to(:get_involved)
-  # end
-  # 
-  # it "can be created from Group using involve_in" do
-  #   Group.should respond_to(:involve_in)
-  # end
-  # 
-  # it "can be removed using remove_involvement" do
-  #   Involvement.should respond_to(:remove_involvement)
-  # end
-  # 
-  # it "can be terminated using finish_involvement" do
-  #   Involvement.should respond_to(:finish_involvement)
-  # end
-  # 
-  # it "can be editted using edit_involvement" do
-  #   Involvement.should respond_to(:edit_involvement)
-  # end
-
-  describe "created" do
-    before(:each) do
-      @user = Factory.create(:user)
-      @group = Factory.create(:group)
-      role_attr = { :name => "C++ Developer",
-                    :tech => "C++",                 # both may be replaced with Name
-                    :type => "Developer",           # both may be replaced with Name
-                    :area => "Technical" }      
-      @role = Role.create( role_attr )
-      @attributes = {:status => "value", 
-                     :role_id => @role.id, 
-                     :start_date => Date::strptime("20100101","%Y%m%d"),
-                     :end_date => nil,
-                     :edited_by => "Alex"}
-    end
-
-    # describe "from user" do
-    #   
-    #   it "should create a involvement given correct attributes" do
-    #     @user.get_involved(@group, @attributes)
-    #   end
-    # 
-    # end
-    # 
-    # describe "from user" do
-    #   
-    #   it "should create a involvement given correct attributes" do
-    #     @user.get_involved(@group, @attributes)
-    #   end
-    # 
-    # end
+  before(:each) do
+    @group = Factory.create(:group)
+    @user = Factory.create(:user)
+    role_attr = { :name => "C++ Developer",
+                  :tech => "C++",                 # both may be replaced with Name
+                  :type => "Developer",           # both may be replaced with Name
+                  :area => "Technical" }      
+    @role = Role.create( role_attr )
+    @attributes = {:user_id => @user.id,
+                   :status => "Senior", 
+                   :role_id => @role.id, 
+                   :start_date => Date::strptime("20100101","%Y%m%d"),
+                   :end_date => nil,
+                   :edited_by => "Alex"}
   end
+  
+  it "should be created given correct attributes" do
+      @group.involvements.create!(@attributes)
+  end
+
+  describe "group associations" do
+    before(:each) do
+      @involvement = @group.involvements.create(@attributes)
+    end  
+    
+    it "should have a group attribute" do
+      @involvement.should respond_to(:group)
+    end
+    
+    it "should have a correctly associated group" do
+      @involvement.group_id.should == @group.id
+      @involvement.group.should == @group
+    end
+  end
+  
+  describe "user associations" do
+    before(:each) do
+      @involvement = @group.involvements.create(@attributes)
+    end  
+    
+    it "should have a user attribute" do
+      @involvement.should respond_to(:user)
+    end
+    
+    it "should have a correctly associated user" do
+      @involvement.user_id.should == @user.id
+      @involvement.user.should == @user
+    end
+  end
+
 end
