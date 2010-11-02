@@ -67,7 +67,10 @@ ActiveRecord::Schema.define(:version => 20101020033912) do
     t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "nickname"
+    t.string   "first_name"
+    t.string   "second_name"
+    t.date     "birth_date"
+    t.text     "about_me"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
