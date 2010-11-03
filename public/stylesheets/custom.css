@@ -5,13 +5,10 @@ input[type=email] {margin:0.5em 0;}
 
 /* Default styles CSS */
 body {
-/*	background: #f6f6f6 url(../images/paper.png) repeat-x 0 0;*/
+	background: #364752 url("../images/bg.jpg") repeat-x 0 0;
 }
 .gradient-bg {
-	background-color: #B9E58B;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#B9E58B', endColorstr='#65BB12'); /* for IE */
-	background: -webkit-gradient(linear, left top, left bottom, from(#B9E58B), to(#65BB12)); /* for webkit browsers */
-	background: -moz-linear-gradient(top,  #B9E58B,  #65BB12); /* for firefox 3.6+ */
+	background-color: #4F6573;
 }
 
 div.main-content {
@@ -27,6 +24,7 @@ div.flash {
 	position: absolute;
 	width: 100%;
 	z-index: -1;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 2px 0px;
 }
 
 .huge-label {
@@ -69,8 +67,6 @@ header {
 	position: relative;
 	text-align: center;
 	width: 100%;
-	border-left: 1px solid #BBB;
-	border-right: 1px solid #BBB;
 }
 nav#top-nav {
 	margin: 0px auto;
@@ -86,7 +82,8 @@ nav#top-nav logo a {
 	font-size: 30px;
 	font-weight: bold;
 	text-decoration: none;
-	color: #333;
+	color: #FDFDFD;
+	text-shadow: 1px 1px 0px #415A5F;
 }
 
 nav#top-nav ul {
@@ -104,6 +101,8 @@ nav#top-nav ul li a {
 	outline: none;
 	font-size: 14px;
 	margin-left: 5px;
+	color: #B2CAD0;
+	text-shadow: 1px 1px 1px #415A5F;
 }
 
 /* Simple form style */
@@ -152,7 +151,9 @@ nav#top-nav ul li a {
 /* Specific CSS */
 
 div.main-content {
-	background-color: white;
+	background-color: #FDFDFD;
+	margin-top: 16px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 18px 0px;
 }
 
 #about {
@@ -304,4 +305,12 @@ div.main-content {
 .sign-up-right {
 	float: right;
 	width: 500px;
+}
+
+.user-panel {
+	padding-left: 16px;
+}
+
+#resume {
+	padding-right:24px;
 }
