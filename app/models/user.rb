@@ -25,6 +25,12 @@ class User < ActiveRecord::Base
   
   has_many :authorizations
   
+  has_many :involvements, :dependent => :destroy
+  has_many :current_involvements, :class_name => "Involvement", :conditions => ['end_date is null']
+  
+  has_many :groups, :through => :involvements, :source => :group
+
+  
   def has_password?(submitted_password)
     pass == encrypt(submitted_password)
   end

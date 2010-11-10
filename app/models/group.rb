@@ -16,9 +16,21 @@ class Group < ActiveRecord::Base
     citation_author.empty?
   end
   
+  def participants 
+    self.users.group("email, nickname").order("nickname")
+  end
+  
+  
   has_many :involvements, :dependent => :destroy
   has_many :current_involvements, :class_name => "Involvement", :conditions => ['end_date is null']
   
   has_many :users, :through => :involvements, :source => :user
   
+#  def involve (args)
+  #   self.involvements.create(args)
+  # end 
+  # 
+  # def terminate_involvement (args)
+  #   self.involvements.create(args)
+  # end 
 end

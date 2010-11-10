@@ -23,7 +23,7 @@ class RolesController < ApplicationController
   
   def destroy
     Role.find_by_id(params[:id]).destroy
-    render 'index'
+    redirect_to roles_path
   end
 
 end

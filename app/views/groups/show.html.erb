@@ -8,6 +8,25 @@
 <% unless @group.web_page.empty? %>
   <p><strong>Web Page:</strong><%= @group.web_page %></p>
 <% end %>
+
+<% if @involvements.length > 0 %>
+  <table> <tr> <th>Name</th> <th>Role</th> <th>Technology</th> <th>Start Date</th> <th>End Date</th> </tr> 
+  <% @involvements.each do |i| %>
+    <tr>
+    <td><%=i.user.nickname%></td>      
+    <td><%="#{i.status} #{i.role.name}"%></td>      
+    <td><%=i.role.tech%></td>      
+    <td><%=i.start_date%></td>      
+    <td><%=i.end_date%></td>      
+    </tr>      
+  <% end %>
+  </table>
+<% end %>
+<h2>Participants</h2>
+<% @group.participants.each do |user| %>
+  <p><%=user.nickname%></p>
+<% end %>
+
 <%= link_to "Edit", edit_group_path(@group)%>
 <%= link_to "Delete", @group, :method => :delete %>
 

@@ -133,4 +133,20 @@ describe User do
 
       end
   end
+  
+  describe "involvements associations" do
+
+    before(:each) do
+      @user = User.create(@attr)
+    end
+
+    it "should have a involvements attribute" do
+      @user.should respond_to(:involvements)
+    end
+
+    it "should have a current_involvements attribute" do
+      @user.should respond_to(:current_involvements)
+    end
+  end  
+  
 end
