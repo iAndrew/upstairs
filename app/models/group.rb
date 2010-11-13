@@ -1,5 +1,6 @@
 class Group < ActiveRecord::Base
-
+  # citation should be removed, it sucks IMO -- Andrew
+  
   attr_accessible :name, :group_type, :citation, :citation_author, 
                   :aim_of_project, :client, :web_page   
   

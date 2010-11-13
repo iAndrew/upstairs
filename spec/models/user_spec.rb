@@ -4,6 +4,7 @@ describe User do
   before(:each) do
     @attr = {
       :email                 => "john.doe@nobody.com",
+      :birth_date            => Date.new(1950,4,15),
       :password              => "foobar",
       :password_confirmation => "foobar"
     }
@@ -155,4 +156,15 @@ describe User do
     end
   end
   
+  describe "birthday feed" do
+    before(:each) do
+      25.times do
+        User.create!(@attr.merge(:birth_date => Date.new(1940 + rand(60),1 + rand(11),1 + rand(27))))
+      end
+    end
+    
+    it "should return people with five nearest birthdays for given date" do
+      
+    end
+  end
 end

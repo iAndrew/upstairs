@@ -1,5 +1,5 @@
 Upstairs::Application.routes.draw do
-  
+
   resources :roles, :only => [:index, :new, :create, :destroy]
   resources :groups
 
@@ -12,5 +12,5 @@ Upstairs::Application.routes.draw do
   match '/auth/:provider/callback', :to => 'sessions#callback'
   match '/auth/failure', :to => 'sessions#failure'
   
-  root :to => 'sessions#new'
+  root :to => 'pages#home'
 end
