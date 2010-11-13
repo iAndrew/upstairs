@@ -28,4 +28,8 @@ group :development, :test do
 	gem 'factory_girl_rails', '1.0'
 	gem 'faker'
 	gem 'syntax'
+	gem 'wirble'
+	gem "hirb" 
+  gem "awesome_print", :require => "ap" 
+  gem "interactive_editor"
 end
