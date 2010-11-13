@@ -78,7 +78,7 @@ class User < ActiveRecord::Base
       dates << d.strftime('%m%d')      
     }
     dates << "0229" if !dates.include?("0229") && dates.include?("0228") && dates.include?("0301")
-    User.find(:all, :conditions => [ "strftime('%m%d',birth_date) IN (?)", dates ]).sort { |u| u.next_birthday }.reverse
+    User.find(:all, :conditions => [ "strftime('%m%d',birth_date) IN (?)", dates ])
   end
   
   def days_to_birthday
