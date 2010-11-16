@@ -49,7 +49,7 @@ describe RolesController do
     
     it "should be successful" do
       delete :destroy, :id => @role
-      response.should be_success
+      response.should redirect_to(roles_path)
     end
     
     it "should change number of roles" do

@@ -1,5 +1,6 @@
 Upstairs::Application.routes.draw do
   
+  resources :involvements, :only => [:new, :create, :destroy]
   resources :roles, :only => [:index, :new, :create, :destroy]
   resources :groups
 
