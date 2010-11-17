@@ -28,6 +28,11 @@ class User < ActiveRecord::Base
   
   has_many :authorizations
   
+  has_many :involvements, :dependent => :destroy
+  has_many :current_involvements, :class_name => "Involvement", :conditions => ['end_date is null']
+  
+  has_many :groups, :through => :involvements, :source => :group
+
   has_many :interests, :class_name => "UserInterest"
   
   has_one :contact, :class_name => "UserContact"

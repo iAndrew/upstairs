@@ -1,0 +1,23 @@
+<h1>All Roles</h1>
+<table class="roles">
+<tr> 
+  <th>Role Name</th>
+  <th>Role Area</th>
+  <th>Technology</th>
+  <th>Role Type</th>
+  <th></th>
+<tr>
+<%= link_to "Create New Role", new_role_path%></div>  
+<% @roles.each do |role| %>
+  <tr>
+  	<td><%=role.name%></td>
+  	<td><%=role.area%></td>
+  	<td><%=role.tech%></td>
+  	<td><%=role.role_type%></td>
+  	<td><%= link_to "Delete", role, :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+
+

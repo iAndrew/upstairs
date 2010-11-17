@@ -45,12 +45,11 @@ describe RolesController do
                :role_type => "Role", 
                :area => "Management"}
       @role = Role.create!(@attr)
-      puts Role.count
     end
     
     it "should be successful" do
       delete :destroy, :id => @role
-      response.should be_success
+      response.should redirect_to(roles_path)
     end
     
     it "should change number of roles" do

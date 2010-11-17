@@ -1,0 +1,30 @@
+<div id="involvements">
+  <% if @involvements.length > 0 %>
+    <table> 
+    <tr> 
+      <th>Name</th> 
+      <th>Role</th> 
+      <th>Technology</th> 
+      <th>Start Date</th> 
+      <th>End Date</th>
+      <th></th> 
+    </tr> 
+    <% @involvements.each do |i| %>
+      <tr>
+      <td><%="#{i.user.first_name} #{i.user.second_name}"%></td>      
+      <td><%=i.role_name_full%></td>      
+      <td><%=i.role_tech%></td>      
+      <td><%=i.start_date%></td>      
+      <td><%=i.end_date%></td>      
+      <td>
+        <% if i.user == current_user %>
+          <%= form_for i, :html => {:method => :delete}, :remote => true do |f| %>
+          <%= f.submit "Delete" %>    
+          <% end %>
+        <% end %>
+      </td>
+      </tr>      
+    <% end %>
+    </table>
+  <% end %>
+</div>  

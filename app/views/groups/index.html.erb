@@ -1,5 +1,6 @@
 <h1>All groups</h1>
 <ul class="groups">
+<div><%= link_to "Create New Group", new_group_path%></div>  
 <% @groups.each do |f| %>
   <li> 
     <h2><%= "#{f.group_type.capitalize}:#{f.name}" %></h2>
@@ -7,11 +8,14 @@
       <p class="citation"><%= f.citation %></p>
       <p class="citation_author"><%= f.citation_author %></p>
     <% end %>
-    <p><strong>Aim:</strong><%= f.aim_of_project %></p>
+    <% unless f.aim_of_project.empty? %>
+      <p><strong>Aim:</strong><%= f.aim_of_project %></p>
+    <% end %>
     <p><strong>Client:</strong><%= f.client %></p>
     <% unless f.web_page.empty? %>
       <p><strong>Web Page:</strong><%= f.web_page %></p>
     <% end %>
+    <%= link_to "More...", group_path(f) %>
   </li>
 <% end %>
 </ul>

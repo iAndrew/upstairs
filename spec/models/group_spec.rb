@@ -107,4 +107,20 @@ describe Group do
       Group.new(@attr).should_not be_valid          
     end    
   end
+  
+  describe "involvements associations" do
+
+    before(:each) do
+      @group = Group.create(@attr)
+    end
+
+    it "should have a involvements attribute" do
+      @group.should respond_to(:involvements)
+    end
+
+    it "should have a current_involvements attribute" do
+      @group.should respond_to(:current_involvements)
+    end
+  end  
+  
 end

@@ -1,0 +1,6 @@
+<div id="participants">
+  <h2>Participants</h2>
+  <% @group.participants.each do |user| %>
+    <p><%="#{user.first_name} #{user.second_name}"%></p>
+  <% end %>
+</div>
