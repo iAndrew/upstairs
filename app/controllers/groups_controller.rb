@@ -15,6 +15,9 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @title = "View group '#{@group.name}'."
     @involvements = @group.involvements.includes(:role, :user)
+    @roles = Role.all
+    @involvement = @group.involvements.new({:user_id => current_user.id, 
+                                            :start_date => Date.today})
   end
 
   def create

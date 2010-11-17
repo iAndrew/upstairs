@@ -1,0 +1,9 @@
+<%= simple_form_for @involvement do |f| %>
+  <%= f.input :group_id, :as => :hidden %>
+  <%= f.input :user_id, :as => :hidden %>
+  <%= f.input :status, :collection => ["Junior", "Master", "Senior"] %>
+  <%= f.input :role_id, :collection => @roles %>
+  <%= f.input :start_date, :as => :string %>
+  <%= f.input :end_date, :as => :string %>
+  <%= f.submit %>
+<% end %>
