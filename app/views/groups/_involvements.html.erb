@@ -12,8 +12,8 @@
     <% @involvements.each do |i| %>
       <tr>
       <td><%=i.user.nickname%></td>      
-      <td><%="#{i.status} #{i.role.name}"%></td>      
-      <td><%=i.role.tech%></td>      
+      <td><%=i.role_name_full%></td>      
+      <td><%=i.role_tech%></td>      
       <td><%=i.start_date%></td>      
       <td><%=i.end_date%></td>      
       <td>

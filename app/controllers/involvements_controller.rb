@@ -15,23 +15,20 @@ class InvolvementsController < ApplicationController
     @title = "Join a #{@group.name}"
     @involvement = @group.involvements.new(params[:involvement].
                     merge(:edited_by => current_user.nickname))
-    @role = Role.find(params[:involvement][:role_id])
-    
+
     if current_user.id == params[:involvement][:user_id].to_i && @involvement.save
       success = true
-      logger.debug ("Involvement successfully created")
     else
       success = false
-      logger.error ("Unable to create involvement #{:message}")
-      logger.error ("User check #{current_user.id == params[:involvement][:user_id]}")
-      logger.error ("Save check #{@involvement.save}")
     end
     
     respond_to do |format|
       format.html do
         if success 
           flash[:success] = "You have joined to group '#{@group.name}'" 
-          flash[:success] += "as #{@involvement.status} #{@role.name}"
+          unless @involvement.role_name_full.empty?
+            flash[:success] += "as @involvement.role_name_full"
+          end
           redirect_to group_path(@group)
         else
           @roles = Role.all
