@@ -14,7 +14,7 @@ class InvolvementsController < ApplicationController
     @group = Group.find(params[:involvement][:group_id])
     @title = "Join a #{@group.name}"
     @involvement = @group.involvements.new(params[:involvement].
-                    merge(:edited_by => current_user.nickname))
+                    merge(:edited_by => current_user.email))
 
     if current_user.id == params[:involvement][:user_id].to_i && @involvement.save
       success = true

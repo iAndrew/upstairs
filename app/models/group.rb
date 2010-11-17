@@ -1,5 +1,6 @@
 class Group < ActiveRecord::Base
-
+  # citation should be removed, it sucks IMO -- Andrew
+  
   attr_accessible :name, :group_type, :citation, :citation_author, 
                   :aim_of_project, :client, :web_page   
   
@@ -17,7 +18,7 @@ class Group < ActiveRecord::Base
   end
   
   def participants 
-    self.users.group("email, nickname").order("nickname")
+    self.users.group("email, first_name, second_name").order("first_name, second_name")
   end
   
   

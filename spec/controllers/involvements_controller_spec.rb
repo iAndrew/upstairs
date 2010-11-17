@@ -71,7 +71,7 @@ describe InvolvementsController do
   describe "DELETE 'destroy'" do
   
     before(:each) do
-      @involvement = @group.involvements.create!(@attr.merge(:edited_by => @user.nickname))
+      @involvement = @group.involvements.create!(@attr.merge(:edited_by => @user.email))
     end
   
     describe "for non signed in user" do

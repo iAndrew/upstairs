@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
     @title = "Sign in"
     if signed_in?
       flash[:notice] = "You are already signed in. Please sign out if you want to sign in as a different user."
+      redirect_to :root
     end
   end
 

@@ -1,0 +1,13 @@
+<div id="event-feed-panel">
+	<h3>Event Feed</h3>
+	<% @events.each { |date, event| %>
+		<div class="event-feed" <%= "id = event-today" if date==Date.today %>>
+			<div class="date-info">
+				<%= date.strftime("%d") %>
+			</div>
+			<div class="event-info">
+				<%= render :partial => "birthday_card", :collection => event[:bd] %>
+			</div>
+		</div>
+	<% } %>
+</div>

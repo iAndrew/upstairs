@@ -1,20 +1,23 @@
 # == Schema Information
-# Schema version: 20101019183408
+# Schema version: 20101026154531
 #
 # Table name: users
 #
-#  id         :integer         not null, primary key
-#  email      :string(255)
-#  pass       :string(255)
-#  salt       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#  nickname   :string(255)
+#  id          :integer         not null, primary key
+#  email       :string(255)
+#  pass        :string(255)
+#  salt        :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#  first_name  :string(255)
+#  second_name :string(255)
+#  birth_date  :date
+#  about_me    :text
 #
 
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :nickname, :email, :password, :password_confirmation
+  attr_accessible :first_name, :second_name, :email, :password, :password_confirmation, :birth_date
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -30,6 +33,18 @@ class User < ActiveRecord::Base
   
   has_many :groups, :through => :involvements, :source => :group
 
+  has_many :interests, :class_name => "UserInterest"
+  
+  has_one :contact, :class_name => "UserContact"
+  
+  def full_name
+    first_name + " " + second_name
+  end
+  
+  def age
+    now = Time.now.utc.to_date
+    now.year - birth_date.year - ((now.month > birth_date.month || (now.month == birth_date.month && now.day >= birth_date.day)) ? 0 : 1)
+  end
   
   def has_password?(submitted_password)
     pass == encrypt(submitted_password)
@@ -51,8 +66,28 @@ class User < ActiveRecord::Base
   end
   
   def apply_omniauth(hash)
-    self.nickname = hash['user_info']['nickname']
     authorizations.build(:provider => hash['provider'], :uid => hash['uid'])
+  end
+  
+  def next_birthday
+    year = Date.today.year
+    mmdd = birth_date.strftime('%m%d')
+    year += 1 if mmdd < Date.today.strftime('%m%d')
+    mmdd = '0301' if mmdd == '0229' && !Date.parse("#{year}0101").leap?
+    Date.parse("#{year}#{mmdd}")
+  end
+  
+  def self.birthdays_around(range)
+    dates = []
+    range.each { |d| 
+      dates << d.strftime('%m%d')      
+    }
+    dates << "0229" if !dates.include?("0229") && dates.include?("0228") && dates.include?("0301")
+    User.find(:all, :conditions => [ "strftime('%m%d',birth_date) IN (?)", dates ])
+  end
+  
+  def days_to_birthday
+    (next_birthday-Date.today).to_i
   end
   
   private  
