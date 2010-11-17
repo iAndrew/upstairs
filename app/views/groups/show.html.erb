@@ -17,16 +17,22 @@
 <%= link_to "Delete", @group, :method => :delete %>
 
 <%= render 'participants' %>
+
 <%= render 'involvements/new_form' %>
 <%= javascript_include_tag "jquery-ui-1.8.6.custom.min" %>
 <%= stylesheet_link_tag "smoothness/jquery-ui-1.8.6.custom.css" %>
 <script>
 $(document).ready(function() {
   $('#new_involvement').dialog({ autoOpen: false, modal: true })
+  $('#new_involvement').attr("data-remote","true")
   $('#join_group').click(function()
     $('#new_involvement').dialog({ autoOpen: true })
-    $('#involvement_submit').attr("data-remote","true")
   )
+  $('#new_involvement #involvement_submit').click (function(){
+    $('#new_involvement').dialog("close");
+  })
 });
 </script>
 
+
+              
