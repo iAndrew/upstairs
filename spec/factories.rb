@@ -4,6 +4,7 @@ Factory.define :user do |user|
   user.email                 { Faker::Internet.email }
   user.password              "foobar"
   user.password_confirmation "foobar"
+  user.nickname              { Faker::Name.name.downcase.gsub(" ", "")}
 end
 
 Factory.define :group do |group|

@@ -5,23 +5,29 @@ class InvolvementsController < ApplicationController
   def new
     @group = Group.find(params[:group_id])
     @involvement = @group.involvements.new
+    @involvement.user = current_user
+    @involvement.start_date = Date.today
     @title = "Join a #{@group.name}"
+    @roles = Role.all
   end
 
   def create
-    if current_user.id == params[:involvement][:user_id]
-      @group = Group.find(params[:group_id])
-      @involvement = @group.involvements.new(params[:involvement])
-      @role = Role.find(params[:involvement][:role_id])
+    @group = Group.find(params[:involvement][:group_id])
+    @title = "Join a #{@group.name}"
+    @involvement = @group.involvements.new(params[:involvement].merge(:edited_by => current_user.nickname))
+    @role = Role.find(params[:involvement][:role_id])
+    
+    if current_user.id == params[:involvement][:user_id].to_i
       if @involvement.save
-         flash[:success] = "You have joined to group '#{@group.name}' as #{@involvement.status} #{@role.name}"
-         redirect_to group_path(@group)
+        flash[:success] = "You have joined to group '#{@group.name}' as #{@involvement.status} #{@role.name}"
+        redirect_to group_path(@group)
       else
-         @title = "Join a #{@group.name}"
-         render :new #, :group_id => params[:group_id]
+        @roles = Role.all
+        render :new, :group_id => params[:group_id]
       end
     else
-      render :new #, :group_id => params[:group_id]
+      @roles = Role.all
+      render :new, :group_id => params[:group_id]
     end
   end
   

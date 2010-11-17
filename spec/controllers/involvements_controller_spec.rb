@@ -12,11 +12,11 @@ describe InvolvementsController do
                   :area => "Technical" }      
     @role = Role.create( role_attr )
     @attr = {:user_id => @user.id,
+             :group_id => @group.id,
              :status => "Senior", 
              :role_id => @role.id, 
              :start_date => Date::strptime("20100101","%Y%m%d"),
-             :end_date => nil,
-             :edited_by => "Alex"}
+             :end_date => nil}
   end
 
   describe "GET 'new'" do
@@ -36,7 +36,6 @@ describe InvolvementsController do
       it "should check permissions"      
             
       it "should be successful" do
-        puts "Group id #{@group.id}" 
         get :new, {:group_id => @group.id}
         response.should be_success
       end
@@ -46,7 +45,7 @@ describe InvolvementsController do
   describe "POST 'create'" do
     describe "for non signed in user" do
       it "should redirect to sign in" do
-        post :create, :group_id => @group.id, :involvement => @attr
+        post :create, :involvement => @attr
         response.should redirect_to(signin_path)
       end
     end  
@@ -58,12 +57,12 @@ describe InvolvementsController do
       
       it "should create a involvement given correct attributes" do
         lambda do
-          post :create, :group_id => @group.id, :involvement => @attr
+          post :create, :involvement => @attr
         end.should change(Involvement, :count).by(1)
       end
       
       it "should redirect to group path" do
-        post :create, :group_id => @group.id, :involvement => @attr
+        post :create, :involvement => @attr
         response.should redirect_to(group_path(@group))
       end
     end
@@ -72,7 +71,7 @@ describe InvolvementsController do
   describe "DELETE 'destroy'" do
   
     before(:each) do
-      @involvement = @group.involvements.create!(@attr)
+      @involvement = @group.involvements.create!(@attr.merge(:edited_by => @user.nickname))
     end
   
     describe "for non signed in user" do
