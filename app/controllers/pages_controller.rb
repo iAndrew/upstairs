@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   def home
     if signed_in?
       @title = "Dashboard"
+      @user = current_user
       range = (Date.today-2..Date.today+3)
       @events = {}
       range.each { |d| @events.store(d, { :bd => [] }) }

@@ -90,6 +90,9 @@ GEM
       oa-enterprise (= 0.1.5)
       oa-oauth (= 0.1.5)
       oa-openid (= 0.1.5)
+    paperclip (2.3.5)
+      activerecord
+      activesupport
     polyglot (0.3.1)
     pyu-ruby-sasl (0.0.3.2)
     rack (1.2.1)
@@ -158,6 +161,7 @@ DEPENDENCIES
   hirb
   interactive_editor
   omniauth
+  paperclip
   rails (= 3.0.1)
   rspec-rails
   simple_form

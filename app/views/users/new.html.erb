@@ -2,13 +2,18 @@
 	Picture will be here
 </div>
 <div class="sign-up-right">
-<h1>Sign up</h1>
 
-<%= simple_form_for @user do |f| %>
-  <%= f.input :email, :placeholder => 'user@domain.com', :input_html => {:class => 'huge wide'},:label_html => {:class => "huge-label"}, :label => "Email:" %>
+<h1>Sign up</h1>
+<h3>Please fill the information below:</h3>
+
+<%= simple_form_for @user, :html => { :class => 'fancy-big', :multipart => true } do |f| %>
+  <%= f.input :avatar, :as => :file, :label => "Profile picture:"  %>
+	<%= f.input :email, :as => :email, :label => "Email:"  %>
 	<% if @user.password_required? %>
-		<%= f.input :password, :input_html => {:class => 'huge wide'}, :label_html => {:class => "huge-label"}, :label => "Password:" %>
-		<%= f.input :password_confirmation, :input_html => {:class => 'huge wide'}, :label_html => {:class => "huge-label"}, :label => "Confirmation:" %>
+		<%= f.input :password, :label => "Password:" %>
+		<%= f.input :password_confirmation, :label => "Confirmation:" %>
 	<% end %>
-	<%= f.button :submit, :class => 'gradient-bg huge' %>
-<% end %></div>
+	<%= f.submit "Sign up", :disable_with => "In progress.." %>
+<% end %>
+
+</div>

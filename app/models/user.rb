@@ -16,23 +16,26 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessor :password
-  attr_accessible :first_name, :second_name, :email, :password, :password_confirmation, :birth_date
+  attr_accessor :password, :crop_x, :crop_y, :crop_w, :crop_h
+  attr_accessible :first_name, :second_name, :email, :password, :password_confirmation, :birth_date, :avatar, :crop_x, :crop_y, :crop_w, :crop_h
+  has_attached_file :avatar, :styles => { :profile => "200x350>", :mini => "50x50#"},
+                    :processors => [:cropper]
+  
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   validates :email, :format => { :with => email_regex }, :uniqueness => { :case_sensetive => false }
   validates :password, :confirmation => true, :length => { :within => 6..40 }, :if => :password_required?
   
-  before_save :encrypt_password
+  before_save :make_salt, :if => :new_record? # order does matter
+  before_save :encrypt_password, :if => :password_exists?
+  
+  after_update :reprocess_avatar, :if => :cropping?
   
   has_many :authorizations
-  
   has_many :involvements, :dependent => :destroy
-  has_many :current_involvements, :class_name => "Involvement", :conditions => ['end_date is null']
-  
+  has_many :current_involvements, :class_name => "Involvement", :conditions => ['end_date is null']  
   has_many :groups, :through => :involvements, :source => :group
-
   has_many :interests, :class_name => "UserInterest"
   
   has_one :contact, :class_name => "UserContact"
@@ -44,6 +47,10 @@ class User < ActiveRecord::Base
   def age
     now = Time.now.utc.to_date
     now.year - birth_date.year - ((now.month > birth_date.month || (now.month == birth_date.month && now.day >= birth_date.day)) ? 0 : 1)
+  end
+  
+  def password_exists?
+    !password.blank?
   end
   
   def has_password?(submitted_password)
@@ -62,7 +69,11 @@ class User < ActiveRecord::Base
   end
   
   def password_required?
-    authorizations.empty? || !password.blank?
+    if authorizations.empty?
+      pass.blank? || !password.blank?
+    else
+      !password.blank?
+    end
   end
   
   def apply_omniauth(hash)
@@ -90,10 +101,18 @@ class User < ActiveRecord::Base
     (next_birthday-Date.today).to_i
   end
   
+  def cropping?
+    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
+  end
+  
+  def avatar_geometry(style = :original)
+    @geometry ||= {}
+    @geometry[style] ||= Paperclip::Geometry.from_file(avatar.to_file(style))
+  end
+  
   private  
 
     def encrypt_password
-      self.salt = make_salt if new_record?
       self.pass = encrypt(password)
     end
     
@@ -102,10 +121,14 @@ class User < ActiveRecord::Base
     end
     
     def make_salt
-      secure_hash("#{Time.now.utc}--#{password}")
+      self.salt = secure_hash("#{Time.now.utc}--#{email}")
     end
     
     def secure_hash(string)
       Digest::SHA2.hexdigest(string)
+    end
+    
+    def reprocess_avatar
+      avatar.reprocess!
     end
 end

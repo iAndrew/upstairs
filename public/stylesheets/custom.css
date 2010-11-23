@@ -2,6 +2,7 @@
 input[type=email] {background-color:#fff;border:1px solid #bbb;}
 input[type=email]:focus {border-color:#666;}
 input[type=email] {margin:0.5em 0;}
+input[type=file] {margin:0.5em 0;}
 
 /* Default styles CSS */
 body {
@@ -10,7 +11,6 @@ body {
 .gradient-bg {
 	background-color: #4F6573;
 }
-
 div.main-content {
 	padding-top: 20px;
 }
@@ -27,39 +27,6 @@ div.flash {
 	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 2px 0px;
 }
 
-.huge-label {
-	margin-top: 12px;
-	font-size: 14px;
-}
-
-input.huge {
-	padding: 6px;
-	font-size: 16px;
-}
-
-input.wide {
-	width: 300px;
-}
-
-input[type=submit] {
-	width: auto;
-}
-
-input[type=submit] {
-	display: inline-block;
-	padding: 5px 10px 6px;
-	color: #333;
-	text-decoration: none;
-	font-weight: bold;
-	line-height: 1;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-bottom: 1px solid #222;
-	position: relative;
-	cursor: pointer;	
-	width: auto;
-}
-
 /* Top Navigation */
 header {
 	display: block;
@@ -71,13 +38,11 @@ header {
 nav#top-nav {
 	margin: 0px auto;
 }
-
 nav#top-nav logo {
 	float: left;
 	margin-top: -5px;
 	margin-left: 20px;
 }
-
 nav#top-nav logo a {
 	font-size: 30px;
 	font-weight: bold;
@@ -85,18 +50,15 @@ nav#top-nav logo a {
 	color: #FDFDFD;
 	text-shadow: 1px 1px 0px #415A5F;
 }
-
 nav#top-nav ul {
 	float: right;
 	list-style-type: none;
 	margin-bottom: 0;
 }
-
 nav#top-nav ul li {
 	margin-top: 10px;
 	display: inline-block;
 }
-
 nav#top-nav ul li a {
 	outline: none;
 	font-size: 14px;
@@ -105,40 +67,44 @@ nav#top-nav ul li a {
 	text-shadow: 1px 1px 1px #415A5F;
 }
 
-/* Simple form style */
-.simple_form label {
+/* Form styles */
+form {
+	margin-bottom: 1em;
+}
+form.fancy-big label {
 	float: left;
 	width: 100px;
 	text-align: right;
-	margin-right: 10px;
+	margin: 0.5em 0.5em;
+	padding: 6px;
+	font-size: 14px;
+}
+form.fancy-big input {
+	padding: 6px;
+	font-size: 16px;
+	width: 300px;
+}
+form.fancy-big input[type='submit'] {
+	margin-left: 120px;
+	width: auto;
 }
 
-.simple_form div.input {
-	margin-bottom: 10px;
-}
-
-.simple_form div.boolean, .simple_form input[type='submit'] {
-  margin-left: 110px;
-}
-
+/* Simple form style */
 .simple_form div.boolean label, .simple_form label.collection_radio {
   float: none;
   margin: 0;
 }
-
 .simple_form label.collection_radio {
   margin-right: 10px;
   margin-left: 2px;
 }
-
 .simple_form .error {
-  clear: left;
+	clear: left;
   margin-left: 120px;
   font-size: 12px;
   color: #D00;
   display: block;
 }
-
 .simple_form .hint {
   clear: left;
   margin-left: 120px;
@@ -148,28 +114,26 @@ nav#top-nav ul li a {
   font-style: italic;
 }
 
-
-
 div.main-content {
 	background-color: #FDFDFD;
 	margin-top: 16px;
 	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 18px 0px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 18px 0px;
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 18px 0px;
 }
 
+/* User profile page */
 #about {
 	color: #5c5c5c;
 	font-size: 1em;
 	line-height: 1.4em;
 }
-
 #resume {
 	float: right;
 }
-
 .resume-section {
 	margin-bottom: 20px;
 }
-
 #about h2 {
 	background: url(../images/title-arrow.png) no-repeat 2% 50%;
 	color: #222222;
@@ -177,31 +141,26 @@ div.main-content {
 	margin-bottom: .625em;
 	padding-left: 25px;
 }
-
 .resume-set {
 	background: url(../images/divider-texture.png) no-repeat 0 0;
 	margin-bottom: 10px;
 	padding-top: 20px;
 }
-
 .resume-set h3 {
 	color: #132536;
 	font: italic normal 1.1em Georgia, 'Times New Roman', Times, serif;
 	margin-bottom: .625em;
 }
-
 .resume-set h3 .resume-title-divider {
 	color: #a7a7a7;
 	font-size: .875em;
 	padding: 0 3px;
 }
-
 .resume-set h3 .resume-title-detail {
 	color: #2f5d87;
 	font: bold 0.95em Helvetica, Arial, sans-serif;
 	letter-spacing: -1px;
 }
-
 .resume-set h3 .resume-date {
 	color: #7e7e7e;
 	font: bold .75em/1em Helvetica, Arial, sans-serif;
@@ -209,7 +168,6 @@ div.main-content {
 	padding-left: 2px;
 	text-transform: uppercase;
 }
-
 .resume-set p {
 	color: #7e7e7e;
 	font-size: 0.8em;
@@ -217,7 +175,6 @@ div.main-content {
 	margin-bottom: .625em;
 	padding: 0 0 0 25px;
 }
-
 .resume-set p em {
 	color: #616161;
 	font-size: 0.9em;
@@ -225,28 +182,27 @@ div.main-content {
 	font-weight: bold;
 	text-transform: uppercase;
 }
-
 .resume-set p .resume-skills {
 	color: #9e332e;
 }
-
 .about-list li {
 	font: 0.9em Helvetica, Arial, sans-serif;
 	list-style: square inside;
 	color: #616161;
 	padding: 0 0 3px 6px;
 }
-
 .about-contacts li {
 	font: normal 0.9em Helvetica, Arial, sans-serif;
 	list-style-type:none;
 	color: #9e332e;
 	padding: 0 0 3px 6px;
 }
-
 .about-contacts li em {
 	font: bold 0.9em Helvetica, Arial, sans-serif;
 	color: #616161;
+}
+#resume {
+	padding-right:24px;
 }
 
 /* Login form */
@@ -255,45 +211,38 @@ div.main-content {
 	width: 450px;
 }
 .login-right-side {
-	float: right;
+	margin-left: 450px;
 	width: 500px;
 }
-.login form {
+#login form {
 	padding-bottom: 20px;
 }
-.login-right-side h2 {
-	margin-bottom: 0.1em;
-}
-
-.login div.services {
+#login .services {
 	padding: 20px 0 20px 0;
 	border-top: dotted 1px;
 	border-bottom: dotted 1px;
 	margin-bottom: 20px;
 }
-
-.login div.services ul {
+#login .services ul {
 	list-style-type: none;
 	margin: 0px;
 }
-
-.login div.services ul li{
+#login .services ul li{
 	display: inline-block;
 }
-
-.login div.services ul li a {
+#login .services ul li a {
 	padding-left: 20px;
 	margin-left: 10px;
 	border: none;
 	font-size: 16px;
 }
-.login div.services ul li a#twitter {
+#login .services ul li a#twitter {
 	background: url(../images/twitter.png) no-repeat left center;
 }
-.login div.services ul li a#facebook {
+#login .services ul li a#facebook {
 	background: url(../images/facebook.png) no-repeat left center;
 }
-.login div.services ul li a#ldap {
+#login .services ul li a#ldap {
 	background: url(../images/ldap.png) no-repeat left center;
 }
 
@@ -303,50 +252,48 @@ div.main-content {
 	width: 450px;
 }
 .sign-up-right {
-	float: right;
+	margin-left: 450px;
 	width: 500px;
 }
 
+/* Side panel with user info */
 .user-panel {
 	padding-left: 16px;
 }
 
-#resume {
-	padding-right:24px;
+/* Avatar cropping */
+#div-crop-original {
+	float: left;
+	width: 200px;
+	margin-bottom: 20px;
+	margin-right: 20px;
+}
+#div-crop-preview {
+	margin-bottom: 10px;
 }
 
 /* Event feed*/
-#event-feed-panel {
-
-}
-
 .event-feed {
 	border-left: 1px solid;
 }
-
 #event-today {
 	background-color: #FFF1AF;;
 }
-
-
 .event-feed .date-info {
 	width: 20px;
 	padding: 0 5px;
 	font-size: 16px;
 	float: left;
 }
-
 .event-feed .event-info {
 	border-left: 1px solid;
 	width: 78px;
 	height: 80px;
 	margin-left: 30px;
 }
-
 .event-feed .photo {
 	text-align: center;
 }
-
 .event-feed .photo img {
 	padding: 5px 10px 0 10px;
 }

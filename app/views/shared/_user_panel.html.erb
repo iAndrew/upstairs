@@ -1,4 +1,4 @@
 <div class = "user-panel">
-	<img src = "../images/picture_stub.jpg" alt="avatar" /><br />
+	<%= image_tag current_user.avatar.url(:profile) %>
 	<em><%= current_user.email %></em>
 </div>
