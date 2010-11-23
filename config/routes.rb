@@ -4,7 +4,10 @@ Upstairs::Application.routes.draw do
   resources :roles, :only => [:index, :new, :create, :destroy]
   resources :groups
 
-  resources :users
+  resources :users do
+    get 'avatar_cropping', :on => :member
+  end
+  
   resources :sessions, :only => [:new, :create, :destroy]
   
   match '/signup',  :to => 'users#new'

@@ -1,0 +1,10 @@
+<h3>Please fill the information below:</h3>
+
+<%= simple_form_for @user, :html => { :class => 'fancy-big', :multipart => true } do |f| %>
+  <%= f.input :avatar, :as => :file, :label => "Profile picture:"  %>
+	<%= f.input :email, :as => :email, :label => "Email:"  %>
+	<%= f.input :password, :label => "Password:" %>
+	<%= f.input :password_confirmation, :label => "Confirmation:" %>
+	<%= f.submit "Update", :disable_with => "In progress.." %>
+<% end %>
+

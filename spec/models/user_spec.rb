@@ -182,4 +182,10 @@ describe User do
     end
   end  
   
+  describe "it should allow user using avatars" do    
+    it "should have avatar inside" do
+      @user = User.create(@attr.merge(:avatar => Rails.root.join('spec/fixtures/picture_stub.jpg')))
+    end
+  end
+  
 end
