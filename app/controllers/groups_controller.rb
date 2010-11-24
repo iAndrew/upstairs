@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   
   before_filter :authenticate, :except => [:index]
+  
   def new
     @group = Group.new
     @title = "Create a new group"
@@ -53,4 +54,11 @@ class GroupsController < ApplicationController
     end
   end
 
+#  def avatar_cropping
+#   @title = "Group avatar cropping"
+#   @group = Group.find(params[:id])
+#   unless @group.avatar.exists?
+#     redirect_to edit_group_url(@user)
+#   end
+#  end
 end
