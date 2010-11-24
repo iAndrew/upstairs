@@ -18,12 +18,43 @@ class UsersController < ApplicationController
     if @user.save
       session[:omniauth] = nil
       sign_in @user    
-      flash[:notice] = "User created. Signed in successfully."
-      redirect_to @user
+      if params[:user][:avatar].blank?
+        redirect_to @user
+      else
+        redirect_to avatar_cropping_user_url(@user)
+      end
     else
       @title = "Sign up"
       render :new
     end    
+  end
+  
+  def edit
+    @title = "Edit profile"
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      if params[:user][:avatar].blank?
+        redirect_to @user
+      else
+        @title = "Avatar cropping"
+        redirect_to avatar_cropping_user_url(@user)
+      end
+    else
+      @title = "Edit profile"
+      render :edit
+    end
+  end
+  
+  def avatar_cropping
+   @title = "Avatar cropping"
+   @user = User.find(params[:id])
+   unless @user.avatar.exists?
+     redirect_to edit_user_url(@user)
+   end
   end
   
   def show

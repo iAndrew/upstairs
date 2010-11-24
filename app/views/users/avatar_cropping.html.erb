@@ -1,0 +1,49 @@
+<% content_for :head do %>
+	<%= stylesheet_link_tag "jquery.Jcrop" %>
+	<%= javascript_include_tag "jquery.Jcrop.min" %>
+	<script type="text/javascript">
+		$(function() {
+			$("#cropbox").Jcrop({
+				onChange: update_crop,
+				onSelect: update_crop,
+				setSelect: [0, 0, 50, 50],
+				aspectRatio: 1
+			});
+		});
+		
+		function update_crop(coords) {
+			var rx = 50/coords.w;
+			var ry = 50/coords.h;
+			$('#crop-preview').css({
+				width: Math.round(rx * <%= @user.avatar_geometry(:profile).width %>) + 'px',
+				height: Math.round(ry * <%= @user.avatar_geometry(:profile).height %>) + 'px',
+				marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+				marginTop: '-' + Math.round(ry * coords.y) + 'px'
+		  });
+			var ratio = <%= @user.avatar_geometry(:original).width %> / <%= @user.avatar_geometry(:profile).width %>;
+			$("#crop_x").val(coords.x * ratio);
+			$("#crop_y").val(coords.y * ratio);
+			$("#crop_w").val(coords.w * ratio);
+			$("#crop_h").val(coords.h * ratio);
+		}
+	</script>
+<% end %>
+<h2>Please crop your photo to create a small avatar</h2>
+<div id="div-crop-original">
+	<h3>Original:</h3>
+	<%= image_tag @user.avatar.url(:profile), :id => "cropbox" %>
+</div>
+
+<div id="div-crop-preview">
+<h3>Preview:</h3>
+	<div style="width:50px;height:50px;overflow:hidden;">
+		<%= image_tag @user.avatar.url(:profile), :id => "crop-preview" %>		
+	</div>
+</div>
+
+<% form_for @user do |f| %>
+  <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+   <%= f.hidden_field attribute, :id => attribute %>
+  <% end %>
+  <p><%= f.submit "Crop" %></p>
+<% end %>
