@@ -1,6 +1,11 @@
 <div class="span-7 colborder" id="about">  
 	<%= image_tag @user.avatar.url(:mini) %>
-  <%= @user.email %>
+  	<div class="edit_box">
+		<span id="<%= dom_id @user %>">
+			First name: <span class="editable-field" data-formtype="input" data-attribute="first_name"><%= @user.first_name %></span><br/>
+			Second name: <span class="editable-field" data-formtype="input" data-attribute="second_name"><%= @user.second_name %></span>
+		</span>
+	</div>
   <p>Short introduction (Hi, mi name is... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.)</p>
   <h2>Interests:</h2>
   <div class="about-list">
