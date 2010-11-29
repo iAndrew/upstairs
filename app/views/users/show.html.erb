@@ -1,3 +1,10 @@
+<%= javascript_include_tag 'edit_box' %>
+<script type="text/javascript">
+  rails_authenticity_token = '<%= form_authenticity_token %>'
+  $(function(){
+    $(".edit_box").editBox();
+  });
+</script>
 <div class="span-7 colborder" id="about">  
 	<%= image_tag @user.avatar.url(:mini) %>
   	<div class="edit_box">
