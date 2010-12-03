@@ -41,7 +41,7 @@ EditBox.prototype = {
 	},
 	
 	updateStatus : function(status) {
-		this.container.find('#status').html("Status: " + status).fadeOut(1000);
+		this.container.find('#status').html("Status: " + status).show().fadeOut(1500);
 	},
 	
 	submit: function(event) {
@@ -82,15 +82,14 @@ EditBox.prototype = {
 	},
 	
 	generateParamValuePar : function(editableField) {
-		return "&"+editableField.attributeName+'='+encodeURIComponent(editableField.getValue());
+		return "&"+editableField.objectName+'['+editableField.attributeName+']='+encodeURIComponent(editableField.getValue());
 	},
 	
 	populate : function(data) {
-		//if (jQuery.fn.jquery < "1.4") data = eval('(' + data + ')' );
 		data = eval('(' + data + ')');
 		for(var i=0; i<this.fields.length; i++) {
 			editableField = $(this.fields[i]).data('editableField');
-			editableField.element.html(data[editableField.attributeName]);
+			editableField.element.html(data[editableField.objectName][editableField.attributeName]);
 		}
 	},
 	

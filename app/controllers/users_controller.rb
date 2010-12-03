@@ -51,10 +51,8 @@ class UsersController < ApplicationController
         end
       }
       format.json {
-        @user.first_name = params[:first_name]
-        @user.second_name = params[:second_name]
-        if @user.save()
-          render :json => {:first_name => @user.first_name, :second_name => @user.second_name}
+        if @user.update_attributes(params[:user])
+          render :json => @user
         else
           render :text => "cannot save"
         end
