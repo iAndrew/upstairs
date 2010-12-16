@@ -1,3 +1,21 @@
+# == Schema Information
+# Schema version: 20101118183705
+#
+# Table name: involvements
+#
+#  id         :integer         not null, primary key
+#  user_id    :integer
+#  group_id   :integer
+#  status     :string(255)
+#  role_id    :integer
+#  start_date :date
+#  end_date   :date
+#  added_by   :string(255)
+#  edited_by  :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Involvement < ActiveRecord::Base
   
   attr_accessible :user_id, :status, :role_id, :start_date, :end_date, :edited_by

@@ -1,3 +1,20 @@
+# == Schema Information
+# Schema version: 20101118183705
+#
+# Table name: groups
+#
+#  id              :integer         not null, primary key
+#  name            :string(255)
+#  group_type      :string(255)
+#  citation        :string(255)
+#  citation_author :string(255)
+#  aim_of_project  :string(255)
+#  client          :string(255)
+#  web_page        :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 class Group < ActiveRecord::Base
   # citation should be removed, it sucks IMO -- Andrew
   

@@ -1,18 +1,22 @@
 # == Schema Information
-# Schema version: 20101026154531
+# Schema version: 20101118183705
 #
 # Table name: users
 #
-#  id          :integer         not null, primary key
-#  email       :string(255)
-#  pass        :string(255)
-#  salt        :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
-#  first_name  :string(255)
-#  second_name :string(255)
-#  birth_date  :date
-#  about_me    :text
+#  id                  :integer         not null, primary key
+#  email               :string(255)
+#  pass                :string(255)
+#  salt                :string(255)
+#  created_at          :datetime
+#  updated_at          :datetime
+#  first_name          :string(255)
+#  second_name         :string(255)
+#  birth_date          :date
+#  about_me            :text
+#  avatar_file_name    :string(255)
+#  avatar_content_type :string(255)
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
 #
 
 class User < ActiveRecord::Base
