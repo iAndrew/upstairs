@@ -297,3 +297,40 @@ div.main-content {
 .event-feed .photo img {
 	padding: 5px 10px 0 10px;
 }
+
+/*user list */
+vcard {  
+}
+.vcard img {
+	float: left;
+}
+.vcard .profile {
+	float: right;
+	width: 400px;
+	margin: 0 200px 0 0;
+}
+.vcard h2 {
+	color: #132536;
+	font: bold normal 1.1em Georgia, 'Times New Roman', Times, serif;
+	margin-bottom: .0em;
+}
+
+.vcard .role {
+	color: #132536;
+	font: normal 1em Georgia, 'Times New Roman', Times, serif;
+	margin-bottom: 0em;
+	letter-spacing: -1px;
+}
+
+.vcard .email {
+	color: #132536;
+	font: italic normal 0.9em Georgia, 'Times New Roman', Times, serif;
+	margin-bottom: 0em;
+}
+
+.vcard .profile p {
+	color: #7e7e7e;
+	font-size: 0.8em;
+	line-height: 1.2em;
+	margin-bottom: .625em;
+}
