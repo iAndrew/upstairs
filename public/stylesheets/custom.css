@@ -123,6 +123,24 @@ div.main-content {
 }
 
 /* User profile page */
+
+#user-info {
+	margin-bottom: 20px;
+	font: 0.9em Helvetica, Arial, sans-serif;
+	color: #616161;
+	padding: 0 0 3px 6px;
+}
+
+#user-info textarea {
+	width: 100%;
+}
+
+#user-info #full-name {
+	color: #222222;
+	font: normal 1.25em Helvetica, Arial, sans-serif;
+	margin-bottom: 8px;
+}
+
 #about {
 	color: #5c5c5c;
 	font-size: 1em;
@@ -134,6 +152,13 @@ div.main-content {
 .resume-section {
 	margin-bottom: 20px;
 }
+
+.resume-section h2 {
+	color: #222222;
+	font: normal 1.25em Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+}
+
 #about h2 {
 	background: url(../images/title-arrow.png) no-repeat 2% 50%;
 	color: #222222;

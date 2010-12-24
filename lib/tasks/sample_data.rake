@@ -15,6 +15,7 @@ end
 def make_users
   default = User.create!(:first_name => "John",
                          :second_name => "Doe",
+                         :about_me => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                          :email => "john.doe@example.com",
                          :password => "foobar",
                          :password_confirmation => "foobar",
@@ -44,6 +45,7 @@ def make_users
 
     User.create!(:first_name => first_name,
                  :second_name => second_name,
+                 :about_me => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                  :email => email,
                  :birth_date => birth_date,
                  :password => "foobar",

@@ -21,7 +21,7 @@
 
 class User < ActiveRecord::Base
   attr_accessor :password, :crop_x, :crop_y, :crop_w, :crop_h
-  attr_accessible :first_name, :second_name, :email, :password, :password_confirmation, :birth_date, :avatar, :crop_x, :crop_y, :crop_w, :crop_h
+  attr_accessible :first_name, :second_name, :email, :about_me, :password, :password_confirmation, :birth_date, :avatar, :crop_x, :crop_y, :crop_w, :crop_h
   has_attached_file :avatar, :styles => { :profile => "200x350>", :mini => "50x50#"},
                     :processors => [:cropper]
   
